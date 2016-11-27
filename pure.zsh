@@ -107,7 +107,7 @@ prompt_pure_string_length() {
 prompt_pure_render_path() {
 	# path
 	pp="%~"
-	preprompt+=("%F{blue}$pp%f")
+	preprompt+=("%B%F{green}$pp%f%b")
 }
 
 prompt_pure_render_vcs() {
@@ -734,9 +734,9 @@ prompt_pure_setup() {
 	fi
 
 	# privileged: bright white (base03 = 15)
-	# unprivileged: highlight (base1 = 14)
+	# unprivileged: same color
 	# failed command: red
-	PROMPT="%(?.%(!.%F{15}.%F{14}).%F{red})${PURE_PROMPT_SYMBOL:-%(!.#.\$)}%f "
+	PROMPT="%(?.%(!.%F{15}.%F{15}).%F{red})${PURE_PROMPT_SYMBOL:-%(!.#.\$)}%f "
 
 	# construct the array of prompt rendering callbacks
 	# a prompt rendering callback should append to the preprompt=() array
